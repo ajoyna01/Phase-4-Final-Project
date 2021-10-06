@@ -23,24 +23,24 @@ class EntriesController < ApplicationController
         end
     end
 
-    def update
-        entry = @current_user.entries.update(entry_params)
-        if entry
-            entry.save
-        else
-            render json: {error: "Ouch"}
-        end
-    end
-
-
     # def update
-    #     entry = @current_user.entries.find_by(id: params[:id])
+    #     entry = @current_user.entries.update(entry_params)
     #     if entry
-    #         entry.update(entry_params)
+    #         entry.save
     #     else
     #         render json: {error: "Ouch"}
     #     end
     # end
+
+
+    def update
+        entry = @current_user.entries.find_by(id: params[:id])
+        if entry
+            entry.update(entry_params)
+        else
+            render json: {error: "Ouch"}
+        end
+    end
 
     # def update
     #     entry = @current_user.entries.find_by(id: params[:id])

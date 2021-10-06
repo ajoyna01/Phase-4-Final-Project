@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
-
+import { Box, Button } from "../styles";
+import styled from "styled-components";
 
 function EntryList({user}) {
   const [entries, setEntries] = useState([]);
@@ -35,11 +36,11 @@ function EntryList({user}) {
 
 
   return (
-    <div>
+    <Wrapper>
       {entries.length > 0 ? (
         entries.map((entry) => (
-          <div key={entry.id}>
-            <div>
+          <Box key={entry.id}>
+            
               <h2>{entry.title}</h2>
               <p>
                 <em>Rating: {entry.rating} </em>
@@ -47,21 +48,25 @@ function EntryList({user}) {
                 <cite>By {entry.user.username}</cite>
               </p>
               <ReactMarkdown>{entry.comment}</ReactMarkdown>
+             
               <button onClick={() => handleDelete(entry.id)}>Delete</button>
               <button onClick={() => handleUpdate(entry.id)}>Update</button>
-            </div>
-          </div>
+            
+          </Box>
         ))
       ) : (
         <>
           <h2>None Found</h2>
-          <button as={Link} to="/new">
+          <Button as={Link} to="/new">
             Make new
-          </button>
+          </Button>
         </>
       )}
-    </div>
+    </Wrapper>
   );
 }
-
+const Wrapper = styled.section`
+  max-width: 800px;
+  margin: 40px auto;
+`;
 export default EntryList;
