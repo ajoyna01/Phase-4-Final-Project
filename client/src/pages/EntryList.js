@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
+import '../styles/App.css';
 
 function EntryList({user}) {
   const [entries, setEntries] = useState([]);
@@ -40,18 +41,18 @@ function EntryList({user}) {
       {entries.length > 0 ? (
         entries.map((entry) => (
           <Box key={entry.id}>
-            
+            <div className="box1">
               <h2>{entry.title}</h2>
               <p>
-                <em>Rating: {entry.rating} </em>
+                <em>Stoke Rating: {entry.rating}🔥</em>
                 &nbsp;·&nbsp;
-                <cite>By {entry.user.username}</cite>
+                <cite>By <strong>{entry.user.username}</strong></cite>
               </p>
               <ReactMarkdown>{entry.comment}</ReactMarkdown>
              
-              <button onClick={() => handleDelete(entry.id)}>Delete</button>
-              <button onClick={() => handleUpdate(entry.id)}>Update</button>
-            
+              <button className="link1" onClick={() => handleDelete(entry.id)}>Delete</button>
+              <button className="link1" onClick={() => handleUpdate(entry.id)}>Stoke Fire</button>
+              </div>
           </Box>
         ))
       ) : (

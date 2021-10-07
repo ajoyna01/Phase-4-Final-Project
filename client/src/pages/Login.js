@@ -9,14 +9,14 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-Camper🏕Keeper
+<span className="logo">Camper🏕 Keeper</span>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
           <Divider />
           <p>
-            Don't have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(false)}>
+
+            <button className="link1" color="secondary" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
           </p>
@@ -26,8 +26,8 @@ Camper🏕Keeper
           <SignUpForm onLogin={onLogin} />
           <Divider />
           <p>
-            Have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(true)}>
+
+            <button className="link1" color="secondary" onClick={() => setShowLogin(true)}>
               Log In
             </button>
           </p>

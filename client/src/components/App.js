@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import EntryList from "../pages/EntryList";
 import NewEntry from "../pages/NewEntry";
 
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -24,6 +25,9 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
+
+
+
           <Route path="/new">
             <NewEntry user={user} />
           </Route>

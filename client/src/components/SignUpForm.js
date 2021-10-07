@@ -68,7 +68,7 @@ function SignUpForm({ onLogin }) {
           autoComplete="current-password"
         />
       </FormField>
-      <FormField>
+      {/* <FormField>
         <Label htmlFor="imageUrl">Profile Image</Label>
         <Input
           type="text"
@@ -85,9 +85,9 @@ function SignUpForm({ onLogin }) {
           value={bio}
           onChange={(e) => setBio(e.target.value)}
         />
-      </FormField>
+      </FormField> */}
       <FormField>
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="link1" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       </FormField>
       <FormField>
         {errors.map((err) => (

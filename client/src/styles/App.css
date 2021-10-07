@@ -1,0 +1,29 @@
+.box1
+{
+ border-radius: 15px;
+ border-width: 1px;
+ border-color: black;
+ border-style: dotted;
+ padding: 15px;
+ margin: 15px;
+}
+
+.link1
+{
+ width: 125px;
+ border-radius: 15px;
+ border-width: 1px;
+ border-color: black;
+ border-style: solid;
+ padding: 10px;
+ margin: 10px;
+ text-decoration: none;
+ font-size: 15px;
+ color:brown;
+ text-align: center;
+}
+
+.logo
+{
+    font-size: 40px;
+}

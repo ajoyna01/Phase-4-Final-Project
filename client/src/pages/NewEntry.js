@@ -6,12 +6,9 @@ import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
 function NewEntry({ user }) {
   const [title, setTitle] = useState("Park name");
-  const [rating, setRating] = useState("5");
+  const [rating, setRating] = useState("1");
   const [comment, setComment] = useState(`
-  The wild and untamed landscape of southern Utah contains some of the most 
-  rugged and inaccessible terrain in the country. Visitors to this area are 
-  awestruck by the enormity of the landscape – its vast size and colossal 
-  dimensions are overwhelming to the senses. 
+  Write something about your park here!  Let others know about your experience... 
   `);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +41,7 @@ function NewEntry({ user }) {
     <Wrapper>
       <WrapperChild>
         <h2>Create Entry</h2>
-        <form onSubmit={handleSubmit}>
+        <form className="box1" onSubmit={handleSubmit}>
           <FormField>
             <Label htmlFor="title">Title</Label>
             <Input
@@ -54,7 +51,7 @@ function NewEntry({ user }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </FormField>
-          <FormField>
+          {/* <FormField>
             <Label htmlFor="rating">Rating</Label>
             <Input
               type="number"
@@ -62,7 +59,7 @@ function NewEntry({ user }) {
               value={rating}
               onChange={(e) => setRating(e.target.value)}
             />
-          </FormField>
+          </FormField> */}
           <FormField>
             <Label htmlFor="comment">Comments</Label>
             <Textarea
@@ -73,7 +70,7 @@ function NewEntry({ user }) {
             />
           </FormField>
           <FormField>
-            <button color="primary" type="submit">
+            <button className="link1" color="primary" type="submit">
               {isLoading ? "Loading..." : "Submit Entry"}
             </button>
           </FormField>
@@ -84,15 +81,7 @@ function NewEntry({ user }) {
           </FormField>
         </form>
       </WrapperChild>
-      <WrapperChild>
-        <h1>{title}</h1>
-        <p>
-          <em>Rating: {rating} sticks</em>
-          &nbsp;·&nbsp;
-          <cite>By {user.username}</cite>
-        </p>
-        <ReactMarkdown>{comment}</ReactMarkdown>
-      </WrapperChild>
+
     </Wrapper>
   );
 }
