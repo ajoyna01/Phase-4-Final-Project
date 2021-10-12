@@ -7,10 +7,11 @@ const Textarea = styled.textarea`
   -webkit-appearance: none;
   max-width: 100%;
   width: 100%;
-  font-size: 1rem;
+  font-size: 3rem;
   line-height: 1.5;
   padding: 4px;
   resize: none;
+  font-family: 'Amatic SC', cursive;
 `;
 
 export default Textarea;

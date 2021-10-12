@@ -1,15 +1,47 @@
+body
+{
+    padding: 20px;
+    background-image: url("../pexels-andrew-neel-2859169.jpg");
+    color: blanchedalmond;
+    font-family: 'Amatic SC', cursive;
+    background-size: cover;
+}
+
+
 .box1
 {
+ background-color: rgba(85, 107, 47, .50);
  border-radius: 15px;
  border-width: 1px;
  border-color: black;
  border-style: dotted;
  padding: 15px;
  margin: 15px;
+ font-family: 'Amatic SC', cursive;
+ font-size: 40px;
+
 }
 
 .link1
 {
+ background-color: rgba(163, 127, 80, .75);
+ font-family: 'Amatic SC', cursive;
+ width: 125px;
+ border-radius: 15px;
+ border-width: 1px;
+ border-color: black;
+ border-style: solid;
+ padding: 10px;
+ margin: 10px;
+ text-decoration: none;
+ font-size: 25px;
+ color:blanchedalmond;
+ text-align: center;
+ transition: .5s;
+}
+.link1:hover
+{
+ background-color: darkolivegreen;
  width: 125px;
  border-radius: 15px;
  border-width: 1px;
@@ -19,11 +51,58 @@
  margin: 10px;
  text-decoration: none;
  font-size: 15px;
- color:brown;
+ color:blanchedalmond;
  text-align: center;
 }
-
 .logo
 {
-    font-size: 40px;
+    font-size: 100px;
+    font-family: 'Akronim', cursive;
+    color: burlywood;
+    text-shadow: 4px 4px dimgray;
+
+}
+.dropdown
+{
+    font-family: 'Amatic SC', cursive;
+    font-size: 24px;
+   
+}
+.createentry
+{
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    text-shadow: 12px 12px black;
+}
+.login
+{
+    font-family: 'Amatic SC', cursive;
+    color: antiquewhite;
+}
+.nonefound
+{
+    font-family: 'Amatic SC', cursive;
+   color: orangered;
+    font-size: 50px;
+    text-shadow: 2px 2px black;
+
+}
+.title1
+{
+    text-shadow: 12px 12px black;
+    font-family: 'Amatic SC', cursive;
+    color: orangered;
+    
+}
+.title2
+{
+    text-shadow: 12px 12px black;
+    font-family: 'Amatic SC', cursive;
+    color: orangered;
+    
+}
+.tagline
+{
+    color: white;
+    font-family: 'Amatic SC', cursive;
 }

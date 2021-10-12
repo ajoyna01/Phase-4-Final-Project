@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
 import '../styles/App.css';
+import EntryCard from "./EntryCard"
 
-function EntryList({user}) {
+function EntryList({ user }) {
   const [entries, setEntries] = useState([]);
   
 
@@ -13,54 +14,38 @@ function EntryList({user}) {
     fetch("/entries")
       .then((r) => r.json())
       .then(setEntries);
+     
   }, []);
 
-  function handleDelete(id) {
-    fetch(`/entries/${id}`, {
-      method: "DELETE",
-    }).then(console.log("delete"));
-  }
-
-  function handleUpdate(id) {
-    fetch(`/entries/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ rating: 8 }),
-    })
-      .then((r) => r.json())
-      .then(console.log("update"));
-
-  }
-
-
-
-  return (
+function handleDeleteEntry(id) {
+  const updatedEntryArray = entries.filter((entry) => entry.id !== id);
+  setEntries(updatedEntryArray);
+}
+function handleUpdateEntry(updatedEntry) {
+  const updatedRating = entries.map((entry) => 
+  entry.id === updatedEntry.id ? updatedEntry : entry
+  );
+   setEntries(updatedRating);
+}
+return (
     <Wrapper>
       {entries.length > 0 ? (
         entries.map((entry) => (
           <Box key={entry.id}>
-            <div className="box1">
-              <h2>{entry.title}</h2>
-              <p>
-                <em>Stoke Rating: {entry.rating}🔥</em>
-                &nbsp;·&nbsp;
-                <cite>By <strong>{entry.user.username}</strong></cite>
-              </p>
-              <ReactMarkdown>{entry.comment}</ReactMarkdown>
-             
-              <button className="link1" onClick={() => handleDelete(entry.id)}>Delete</button>
-              <button className="link1" onClick={() => handleUpdate(entry.id)}>Stoke Fire</button>
-              </div>
+           <EntryCard
+           user={user}
+           entry={entry}
+           onDeleteEntry={handleDeleteEntry}
+           onUpdateEntry={handleUpdateEntry}
+           />
           </Box>
         ))
       ) : (
         <>
-          <h2>None Found</h2>
-          <Button as={Link} to="/new">
+          <h2 className="nonefound">None Found: Make your first entry...</h2>
+          <Link className="link1" as={Link} to="/new">
             Make new
-          </Button>
+          </Link>
         </>
       )}
     </Wrapper>

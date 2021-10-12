@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import EntryList from "../pages/EntryList";
 import NewEntry from "../pages/NewEntry";
-
+import Header from "./Header";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,12 +22,14 @@ function App() {
 
   return (
     <>
+    {/* <div style={{ backgroundImage:}} */}
+    <Header user={user}/>
       <NavBar user={user} setUser={setUser} />
+      
       <main>
+      
+
         <Switch>
-
-
-
           <Route path="/new">
             <NewEntry user={user} />
           </Route>

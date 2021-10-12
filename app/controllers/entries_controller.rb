@@ -2,7 +2,8 @@ class EntriesController < ApplicationController
     before_action :authorize
 
     def index
-        render json: Entry.all
+        entries = @current_user.entries
+        render json: entries
     end
     def show
         entry = Entry.find_by(id: params[:id])
@@ -44,8 +45,14 @@ class EntriesController < ApplicationController
 
     def update
         entry = @current_user.entries.find_by(id: params[:id])
-       entry.rating = entry.rating + 1
-       entry.save
+        if entry.rating < 10
+            entry.rating = entry.rating + 1
+            entry.save
+            render json: entry
+        else
+            render json: {error: "Max stokes reached"}
+
+        end
     end
 
     private

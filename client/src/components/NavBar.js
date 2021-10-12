@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
   return (
     <Wrapper>
 
-      <span className="logo">Camper🏕 Keeper</span>
+      
       <Nav>
 
 
